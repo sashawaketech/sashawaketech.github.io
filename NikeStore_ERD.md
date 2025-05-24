@@ -1,5 +1,8 @@
 
 ```mermaid
+---
+title: Nike Store ERD Diagram
+---
 erDiagram
     PRODUCT {
         int product_id PK
@@ -12,6 +15,11 @@ erDiagram
         int customer_id PK
         string first_name
         string last_name
+        string address
+        string city
+        string state
+        int postal_code
+        string phone
         string email
     }
 
@@ -19,6 +27,7 @@ erDiagram
         int sale_id PK
         date sale_date
         int customer_id FK
+        int product_id FK
         float total_amount
     }
 
@@ -31,6 +40,6 @@ erDiagram
 
     PRODUCT ||--o{ SALE : includes
     CUSTOMER ||--o{ SALE : makes
-    PRODUCT ||--o{ INVENTORY : stocked_in
+    PRODUCT ||--o{ INVENTORY : contains
 ```
 
